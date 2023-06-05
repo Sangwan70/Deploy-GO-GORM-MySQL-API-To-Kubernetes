@@ -1,0 +1,13 @@
+apiVersion: v1                           # API version
+kind: Service                            # Type of kubernetes resource 
+metadata:
+  name: skillpedia-mysql                  # Name of the resource
+  labels:                                # Labels that will be applied to the resource
+    app: skillpedia-mysql
+spec:
+  type: NodePort
+  ports:
+    - port: 3306
+  selector:                              # Selects any Pod with labels `app=skillpedia-mysql,tier=mysql`
+    app: skillpedia-mysql
+    tier: mysql 
